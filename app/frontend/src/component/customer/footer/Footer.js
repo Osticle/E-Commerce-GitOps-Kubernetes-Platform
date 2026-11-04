@@ -2,15 +2,6 @@ import { Col } from "antd";
 import "./style-footer.css";
 import logoFooter from "./../../../assets/images/logo_admin.png";
 import { Link } from "react-router-dom";
-import {
-  FacebookOutlined,
-  GoogleOutlined,
-  InstagramOutlined,
-  LinkedinOutlined,
-  TwitterOutlined,
-  YoutubeOutlined,
-} from "@ant-design/icons";
-import ReactPlayer from "react-player";
 import { Row } from "antd/es";
 function Footer() {
   return (
