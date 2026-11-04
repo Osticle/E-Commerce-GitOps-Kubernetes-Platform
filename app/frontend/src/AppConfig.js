@@ -1,7 +1,7 @@
 /** @format */
 
 export const AppConfig = {
-  apiUrl: "http://api-beeshoes.website",
+  apiUrl: "http://192.168.219.40:8080",
   routerBase: "",
 };
 
