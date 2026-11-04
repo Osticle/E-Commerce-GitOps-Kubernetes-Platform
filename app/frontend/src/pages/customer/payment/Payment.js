@@ -65,7 +65,7 @@ function Payment() {
     { title: " FREE SHIPPING VỚI HÓA ĐƠN TRÊN 2 TRIỆU!" },
   ];
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const socket = new SockJS("http://api-beeshoes.devopsedu.vn/ws");
+  const socket = new SockJS("http://api-beeshoes.website/ws");
   const stompClient = Stomp.over(socket);
   useEffect(() => {
     console.log(formErrors);
@@ -78,7 +78,7 @@ function Payment() {
         parseInt(
           (parseInt(item.price) -
             parseInt(item.price) * (item.valuePromotion / 100)) *
-            item.quantity
+          item.quantity
         ),
       0
     );
@@ -154,13 +154,13 @@ function Payment() {
         phoneNumber: !formBill.phoneNumber
           ? "Vui lòng nhập số điện thoại"
           : !phoneNumberPattern.test(formBill.phoneNumber)
-          ? "Vui lòng nhập đúng định dạng số điện thoại"
-          : "",
+            ? "Vui lòng nhập đúng định dạng số điện thoại"
+            : "",
         email: !formBill.email
           ? "Vui lòng nhập email"
           : !emailPattern.test(formBill.email)
-          ? "Vui lòng nhập đúng định dạng email"
-          : "",
+            ? "Vui lòng nhập đúng định dạng email"
+            : "",
         address: !formBill.address ? "Vui lòng nhập địa chỉ" : "",
         province:
           formBill.province === undefined || !formBill.province
@@ -227,7 +227,7 @@ function Payment() {
               toast.success("Bạn đặt hàng thành công.");
               navigate(`/home`);
             },
-            (err) => {}
+            (err) => { }
           );
         }
       },
@@ -544,17 +544,15 @@ function Payment() {
               <div className="title-method-payment">PHƯƠNG THỨC THANH TOÁN</div>
               <div className="method-payment">
                 <div
-                  className={`payment-when-recevie ${
-                    keyMethodPayment === "paymentReceive" ? "click" : ""
-                  }`}
+                  className={`payment-when-recevie ${keyMethodPayment === "paymentReceive" ? "click" : ""
+                    }`}
                   onClick={paymentReceive}
                 >
                   Thanh toán khi nhận hàng
                 </div>
                 <div
-                  className={`payment-by-vnpay ${
-                    keyMethodPayment === "paymentVnpay" ? "click" : ""
-                  }`}
+                  className={`payment-by-vnpay ${keyMethodPayment === "paymentVnpay" ? "click" : ""
+                    }`}
                   onClick={paymentVnpay}
                 >
                   Thanh toán VnPay{" "}
@@ -603,7 +601,7 @@ function Payment() {
                               {" "}
                               {formatMoney(
                                 item.price -
-                                  item.price * (item.valuePromotion / 100)
+                                item.price * (item.valuePromotion / 100)
                               )}
                             </span>
                           ) : (

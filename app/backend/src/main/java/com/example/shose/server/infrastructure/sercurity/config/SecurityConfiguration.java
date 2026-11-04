@@ -82,8 +82,8 @@ public class SecurityConfiguration {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH"));
-        configuration.addAllowedOrigin("http://beeshoes.devopsedu.vn");
-        // List<String> allowedOrigins = Arrays.asList("http://beeshoes.devopsedu.vn", "IP");
+        configuration.addAllowedOrigin("http://beeshoes.website");
+        // List<String> allowedOrigins = Arrays.asList("http://beeshoes.website", "IP");
         // for (String allowedOrigin : allowedOrigins) {
         //     configuration.addAllowedOrigin(allowedOrigin);
         // }

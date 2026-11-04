@@ -596,7 +596,7 @@ public class PaymentsMethodServiceImpl implements PaymentsMethodService {
         }
         if (bill.getStatusBill() != StatusBill.THANH_CONG &&  !email.isEmpty()) {
             invoice.setCheckShip(true);
-            sendMail(invoice, "http://beeshoes.devopsedu.vn/bill/" + bill.getCode() + "/" + bill.getPhoneNumber(), bill.getEmail());
+            sendMail(invoice, "http://beeshoes.website/bill/" + bill.getCode() + "/" + bill.getPhoneNumber(), bill.getEmail());
         }
         Context dataContext = exportFilePdfFormHtml.setData(invoice);
         finalHtml = springTemplateEngine.process("templateBill", dataContext);

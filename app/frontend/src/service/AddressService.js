@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Đường dẫn api
-let api = "http://api-beeshoes.devopsedu.vn/admin/address";
+let api = "http://api-beeshoes.website/admin/address";
 
 var dataUser = [];
 
@@ -16,7 +16,7 @@ const getAllUser = () => {
       console.log(response.data.data);
       // dispatch(addAllDataUsers(response.data.data));
     });
-  } catch {}
+  } catch { }
   return dataUser;
 };
 
@@ -33,7 +33,7 @@ const fetchAllAddress = (page) => {
 const fetchAllAddressSearch = (page, line, city, province, country, user) => {
   return axios.get(
     api +
-      `/list?page=${page}&line=${line}&city=${city}&province=${province}&country=${country}&user=${user}`
+    `/list?page=${page}&line=${line}&city=${city}&province=${province}&country=${country}&user=${user}`
   );
 };
 

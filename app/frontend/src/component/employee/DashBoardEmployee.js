@@ -71,7 +71,7 @@ const DashBoardEmployee = ({ children }) => {
   const handleMenuLeave = () => {
     setOpenInfo(false);
   };
-  const socket = new SockJS("http://beeshoes.devopsedu.vn/ws");
+  const socket = new SockJS("http://beeshoes.website/ws");
   const stompClient = Stomp.over(socket);
 
   const data = useAppSelector(GetNotification);
@@ -164,9 +164,9 @@ const DashBoardEmployee = ({ children }) => {
             toast.success("Đổi mật khẩu thành công.");
             handleCancel();
           })
-          .catch((err) => {});
+          .catch((err) => { });
       })
-      .catch((error) => {});
+      .catch((error) => { });
   };
 
   const handleCancel = () => {
@@ -213,7 +213,7 @@ const DashBoardEmployee = ({ children }) => {
     NotificationClientApi.setStatus(idNotify).then((res) => {
       dispatch(UpdateNotification(res.data.data));
     });
-    window.location.href =  `/bill-management/detail-bill/${idBill}`;
+    window.location.href = `/bill-management/detail-bill/${idBill}`;
   };
 
   return (
