@@ -101,7 +101,7 @@ public class SendEmailService {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, "utf-8");
         Optional<Bill> optional = billRepository.findById(idBill);
-        RollBackBillResponse response = RollBackBillResponse.builder().code(optional.get().getCode()).fullName(optional.get().getEmployees().getUser().getFullName()).note(note).url("http://192.168.219.40//bill-management/detail-bill/"+ optional.get().getId()).build();
+        RollBackBillResponse response = RollBackBillResponse.builder().code(optional.get().getCode()).fullName(optional.get().getEmployees().getUser().getFullName()).note(note).url("http://beeshoes.website//bill-management/detail-bill/"+ optional.get().getId()).build();
         String htmlBody = "<html>"
                 + "<head>"
                 + "<style>"
