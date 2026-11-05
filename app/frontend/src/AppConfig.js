@@ -1,7 +1,7 @@
 /** @format */
 
 export const AppConfig = {
-  apiUrl: "http://192.168.219.40:8080",
+  apiUrl: process.env.REACT_APP_API_URL || "http://localhost:8080",
   routerBase: "",
 };
 
