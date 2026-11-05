@@ -20,8 +20,8 @@ public abstract class VnPayConstant {
     public static String vnp_CurrCode = "VND";
 //    public static String vnp_IpAddr = "0:0:0:0:0:0:0:1";
     public static String vnp_Locale = "vn";
-    public static String vnp_ReturnUrl = "http://beeshoes.website/payment/payment-success";
-    public static String vnp_ReturnUrlBuyOnline = "http://beeshoes.website/client/payment/payment-success";
+    public static String vnp_ReturnUrl = "http://192.168.219.40/payment/payment-success";
+    public static String vnp_ReturnUrlBuyOnline = "http://192.168.219.40/client/payment/payment-success";
 
 //    public static String vnp_ExpireDate = "";
 
