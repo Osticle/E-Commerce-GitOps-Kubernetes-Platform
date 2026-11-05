@@ -71,7 +71,7 @@ const DashBoardEmployee = ({ children }) => {
   const handleMenuLeave = () => {
     setOpenInfo(false);
   };
-  const socket = new SockJS("http://beeshoes.website/ws");
+  const socket = new SockJS("http://192.168.219.40:8080/ws");
   const stompClient = Stomp.over(socket);
 
   const data = useAppSelector(GetNotification);
