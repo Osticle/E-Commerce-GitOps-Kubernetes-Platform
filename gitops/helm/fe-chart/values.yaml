@@ -1,0 +1,30 @@
+image:
+  repository: sugm4d1c/beeshoes-fe
+  tag: "branch_hash_version"            # # pipeline will overwrite it in each build
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+replicaCount: 1            # only work when autoscaling.enabled = false
+
+service:
+  port: 80
+  targetPort: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: beeshoes.website
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "150m"
+  limits:
+    memory: "512Mi"
