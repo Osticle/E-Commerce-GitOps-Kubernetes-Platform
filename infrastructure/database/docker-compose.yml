@@ -1,0 +1,15 @@
+services:
+  mariadb:
+    image: mariadb:10.6.22-focal
+    container_name: ecom-mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: bee_shoes_db
+      MARIADB_ROOT_PASSWORD: weakpassword
+      MARIADB_USER: bee_user
+      MARIADB_PASSWORD: strongpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/database:/var/lib/mysql
+      - /home/ostic/sql-dump:/docker-entrypoint-initdb.d:ro
