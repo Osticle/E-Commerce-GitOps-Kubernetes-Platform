@@ -1,3 +1,5 @@
+namespace: beeshoes-project
+
 image:
   repository: sugm4d1c/beeshoes-fe
   tag: "branch_hash_version"            # # pipeline will overwrite it in each build

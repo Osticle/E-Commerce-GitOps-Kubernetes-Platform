@@ -2,6 +2,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
+  namespace: {{ .Values.namespace }}
   name: {{ .Chart.Name }}-autoscaler
   labels:
     {{- include "beeshoes.labels" . | nindent 4 }}
