@@ -39,3 +39,12 @@ config:
 secret:
   DB_USERNAME: "bee_user"
   DB_PASSWORD: "strongpassword"
+
+readinessProbe:
+  enabled: true
+  path: /client/category
+  initialDelaySeconds: 40
+  periodSeconds: 10
+  timeoutSeconds: 3
+  failureThreshold: 3
+  successThreshold: 1

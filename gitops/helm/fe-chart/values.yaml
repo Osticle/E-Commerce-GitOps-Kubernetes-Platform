@@ -30,3 +30,12 @@ resources:
     cpu: "150m"
   limits:
     memory: "512Mi"
+
+readinessProbe:
+  enabled: true
+  path: /
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 2
+  failureThreshold: 3
+  successThreshold: 1
