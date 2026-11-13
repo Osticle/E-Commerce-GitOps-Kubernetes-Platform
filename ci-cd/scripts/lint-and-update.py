@@ -6,11 +6,18 @@ import subprocess
 import sys
 from pathlib import Path
 from ruamel.yaml import YAML
+from typing import Optional, Tuple
 
 # Preserve YAML layout, indentation, and comments
 yaml = YAML()
 yaml.preserve_quotes = True
 yaml.indent(mapping=2, sequence=4, offset=2)
+
+def parse_semver(tag_str: str) -> Optional[Tuple[int, int, int]] | None:
+    match = re.search(r"v?(\d+)\.(\d+)\.(\d+)$", tag_str.strip())
+    if not match:
+        return None
+    return (int(match.group(1)), int(match.group(2)), int(match.group(3)))
 
 def sanitize_string(value: str) -> str:
     # Docker tags cannot contain slashes or invalid characters
@@ -45,7 +52,28 @@ def update_image_tag(values_file: Path, new_tag: str) -> bool:
         print(f"[ERROR] Rejected prohibited tag '{new_tag}'.")
         return False
 
-    old_tag = data["image"].get("tag", "unknown")
+    raw_old_tag = data["image"].get("tag")
+    old_tag = str(raw_old_tag).strip() if raw_old_tag else "unknown"
+
+    if old_tag == new_tag:
+        print(f"[ERROR] No changes detected. Image tag is already '{new_tag}'.")
+        return False
+
+    if old_tag not in ("unknown", "latest"):
+        old_ver = parse_semver(old_tag)
+        new_ver = parse_semver(new_tag)
+
+        if old_ver is None or new_ver is None:
+            print(f"[ERROR] Invalid SemVer format. Old: '{old_tag}', New: '{new_tag}'")
+            return False
+
+        if new_ver <= old_ver:
+            print(
+                f"[ERROR] Version regression blocked! "
+                f"New version {new_ver} must be strictly higher than current {old_ver}."
+            )
+            return False
+
     data["image"]["tag"] = new_tag
 
     try:
